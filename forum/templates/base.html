@@ -1,0 +1,32 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">
+            <a class="header-logo-text" href="{%url 'home'%}">Logo</a>
+        </div>
+        <div class="header-menu">
+            <a class="header-menu-item" href="{%url 'forums'%}">forums</a>
+            {% if user.is_authenticated %}
+                <p class="header-menu-item user">{{user.username}}</p>
+                <a class="header-menu-item" href="{%url 'logout'%}">logout</a>
+            {% else %}
+                <a class="header-menu-item" href="{%url 'login'%}">login</a>
+                <a class="header-menu-item" href="{%url 'reg'%}">registration</a>
+            {% endif %}
+        </div>
+    </div>
+    {% block body%}
+    {%endblock%}
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    {%block script%}
+    {%endblock%}
+</body>
+</html>

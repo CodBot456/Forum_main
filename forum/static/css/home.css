@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+    color: rgb(245, 241, 241);
+    text-decoration: none;
+}
+:root{
+    --main-color:rgb(37, 37, 36);
+    --second-color:rgb(34, 33, 32);
+}
+body{
+    background-color: var(--main-color);
+}
+.header{
+    background-color: var(--second-color);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    font-size: 25px;
+}
+.header-menu{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(44, 43, 42);
+    padding: 20px;
+}
+.header-logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-logo-text,.header-menu-item{
+    text-decoration: none;
+    color: rgb(245, 241, 241);
+}
+.form{
+    width: fit-content;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    padding-left: 150px;
+    padding-right: 150px;
+    font-size: 30px;
+}
+.form-input{
+    display: block;
+    font-size: 30px;
+    margin-top: 15px;
+    color: black;
+}
+.form-label{
+    display: block;
+    margin-top: 25px;
+    color: rgb(245, 241, 241);
+}   
+.form-btn{
+    font-size: 30px;
+    margin-top: 25px;
+    color: black;
+}
+.user{
+    width: 100%;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+.forum{
+    margin: 50px auto;
+    width: 60%;
+    padding: 20px;
+}
+.forum:hover{
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.192);
+}
+
+.forum-title{
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.comments{
+    width: 90%;
+    margin:50px auto;
+    border: 3px solid grey;
+}
+.comment{
+    width:90%;
+    margin:25px auto;
+    border: 2px solid grey;
+    padding:10px;
+}
+.comment-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.comment-author{
+    font-size: 30px;
+    width: 95%;
+    border-bottom: 1px solid white;
+}
+.comment-header ion-icon{
+    font-size: 0px;
+}
+.comment-header:hover ion-icon{
+    font-size: 35px;
+}
+.comment-header:hover ion-icon:hover{
+    background-color: white;
+    color:black;
+}
+.comment-body{
+    padding: 15px;
+}
+.forum-body-text{
+    margin-bottom: 20px;
+}
+.forum-detail-body{
+    padding: 15px;
+}
+.form-detail-comment{
+    /* border: 1px solid white; */
+    width: 60%;
+    margin: 25px auto;
+    display: flex;
+    flex-direction: column;
+}
+.form-detail-input{
+    color: black;
+    margin-bottom: 25px;
+    padding: 15px;
+    font-size: 20px;
+}
+.form-detail-btn{
+    padding: 12px;
+    font-size: 20px;
+    color:white;
+    border: 1px solid white;
+    outline: none;
+    background-color: var(--main-color);
+    width: 25%;
+    transition: 0.5s;
+}
+.form-detail-btn:hover{
+    color:black;
+    background-color: white; 
+}
+.sorts{
+    padding: 10px;
+    display: flex;
+    width:90%;
+    margin:0px auto;
+    justify-content: end;
+    align-items: center;
+    font-size: 25px;
+}
+
+.filter-form.active{
+    display: flex;
+    flex-direction: column;
+}
+.filter-form{
+    display: none;
+}
+.filter-form input{
+    color:white;
+}
+
+.filter-form .btn{
+    color:white;
+    border: 1px solid white;
+    outline: none;
+    background-color: var(--main-color);
+    padding: 5px;
+    width: 50%;
+    margin: 5px auto;
+    transition: 0.5s;
+}
+.filter-form .btn:hover{
+    color:black;
+    background-color: white;
+}
+.filter-block span{
+    cursor: pointer;
+}

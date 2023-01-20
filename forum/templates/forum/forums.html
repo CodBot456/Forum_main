@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+{% block body%}
+    <h1>forums</h1>
+    
+    {% for forum in forums %}
+        <a href="{% url 'forum' forum.id %}">
+            <div class="forum">
+                <p class="forum-title">{{ forum.name }}</p>
+                <div class="forum-body">
+                    <p class="forum-body-text">{{forum.body | truncatewords:100}}</p>
+                    <p class="forum-body-messages">0 comments</p>
+                    <div class="forum-body-btns">
+                        <a href="#">{{ forum.like }} like</a>
+                        <a href="#">{{ forum.dislike }} dislike</a>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+    
+{%endblock%}

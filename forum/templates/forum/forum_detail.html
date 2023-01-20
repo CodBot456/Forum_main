@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+
+{% block body%}
+    <h1>Форум {{ forum.name }}</h1>
+
+    <p class="forum-detail-body">{{ forum.body }}</p>
+    <p class="forum-detail-body">post by {{ forum.author.username }}</p>
+
+    <form class="form-detail-comment" method="post">
+        {% csrf_token %}
+        <input name="comment" class="form-detail-input" type="text" placeholder="Напишите свой комментарий">
+        <input  class="form-detail-btn" type="submit" value="Оставить комментарий">
+    </form>
+
+    <div class="sorts">
+        <div class="filter-block">
+            <ion-icon name="albums-outline"></ion-icon>
+            <span onclick="showFilter()">Фильтр</span>
+            <form method="get" class="filter-form">
+                <div>
+                    <input name="filter" type="radio" id="radio1" value="timefromold">
+                    <label for="radio1">По времени (сначала старые)</label>
+                </div>
+                
+                <div>
+                    <input name="filter" type="radio" id="radio2" value="timefromnew">
+                    <label for="radio2">По времени (сначала новые)</label>
+                </div>
+                
+                <input type="submit" class="btn" value="Применить">
+            </form>
+        </div>
+    </div>
+    <div class="comments">
+        {% for comment in sorted_comments%}
+            <div class="comment">
+                <div class="comment-header">
+                    <p class="comment-author">{{comment.author.username}}</p>
+                    {% if user == comment.author %}
+                        <a href="{% url 'delete_comment' forum.id comment.id%}">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </a>
+                    {% endif %}
+                </div>
+                <p>{{comment.published}}</p>
+                <div class="comment-body">
+                    <p class="comment-body-text">
+                        {{comment.body}}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{%endblock%}
+{%block script%}
+    <script>
+        function showFilter(){
+            const form = document.querySelector('.filter-form')
+            form.classList.toggle('active')
+        }
+    </script>
+{%endblock%}

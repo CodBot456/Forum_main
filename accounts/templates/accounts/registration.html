@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+{% block body%}
+    <h1 align="center">Registration</h1>
+    <form method="post" class="form">
+        {%csrf_token%}
+        {% if error %}
+            <p style="color: red; font-size:25px;">{{ error }}</p>
+        {% endif %}
+
+        <label class="form-label">Введите свой никнэйм</label>
+        <input type="text" name="nickname" class="form-input">
+
+        <label class="form-label">Введите свой пароль</label>
+        <input type="password" name="password1" class="form-input">
+
+        <label class="form-label">Повторите пароль</label>
+        <input type="password" name="password2" class="form-input">
+
+        <input type="submit" value="Регистрация на форуме" class="form-btn">
+    </form>
+{%endblock%}
